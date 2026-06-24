@@ -1,118 +1,95 @@
-import { whatsAppClient, whatsAppPrestataire } from '../../config'
+import { whatsAppClient } from '../../config'
 
 export default function Hero() {
   return (
-    <section className="relative flex items-center justify-center min-h-screen px-4 py-20">
-      {/* Fond dégradé subtil */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background: 'radial-gradient(ellipse 80% 60% at 50% 40%, #291A3D 0%, #1E1230 100%)',
-        }}
-      />
+    <section
+      className="relative min-h-screen flex flex-col justify-end px-6 pb-16 sm:px-14 sm:pb-20"
+      style={{
+        background: 'linear-gradient(160deg, #291A3D 0%, #1E1230 55%, #150C26 100%)',
+      }}
+    >
+      {/* Marque en haut à gauche */}
+      <div className="absolute top-7 left-6 sm:left-14">
+        <p style={{ fontFamily: 'Fraunces, serif', color: '#D4AF6A', fontSize: 15, letterSpacing: '0.04em' }}>
+          Sandaga Events
+        </p>
+      </div>
 
-      {/* Carton d'invitation */}
-      <div
-        className="relative z-10 w-full max-w-2xl mx-auto text-center px-8 py-14 sm:px-16 sm:py-20"
-        style={{
-          border: '1px solid rgba(212,175,106,0.45)',
-          borderRadius: '4px',
-          boxShadow: '0 0 60px rgba(212,175,106,0.06), inset 0 0 40px rgba(30,18,48,0.4)',
-        }}
+      {/* Lien admin discret en haut à droite */}
+      <a
+        href="/admin"
+        className="absolute top-7 right-6 sm:right-14 text-xs transition-colors"
+        style={{ color: 'rgba(245,239,230,0.20)', fontFamily: 'Hanken Grotesk, sans-serif' }}
+        onMouseEnter={e => (e.currentTarget.style.color = 'rgba(245,239,230,0.50)')}
+        onMouseLeave={e => (e.currentTarget.style.color = 'rgba(245,239,230,0.20)')}
       >
-        {/* Ornements de coins */}
-        <Corner pos="tl" />
-        <Corner pos="tr" />
-        <Corner pos="bl" />
-        <Corner pos="br" />
+        Accès fondateur
+      </a>
 
-        {/* Eyebrow */}
+      {/* Contenu principal — aligné en bas à gauche */}
+      <div className="max-w-3xl">
+        {/* Petite accroche */}
         <p
-          className="mb-8 text-xs tracking-[.28em] uppercase"
+          className="mb-5 text-xs tracking-[.22em] uppercase"
           style={{ color: '#D4AF6A', fontFamily: 'Hanken Grotesk, sans-serif' }}
         >
-          Sandaga Events · Diaspora France &amp; Sénégal
+          Diaspora France &amp; Sénégal
         </p>
 
-        {/* Titre */}
+        {/* Titre massif */}
         <h1
-          className="mb-6 text-4xl sm:text-5xl leading-tight font-medium"
-          style={{ fontFamily: 'Fraunces, serif', color: '#F5EFE6' }}
+          className="mb-8 font-medium leading-[1.05]"
+          style={{
+            fontFamily: 'Fraunces, serif',
+            color: '#F5EFE6',
+            fontSize: 'clamp(2.8rem, 7vw, 5.5rem)',
+          }}
         >
-          Vos cérémonies entre{' '}
-          <em style={{ color: '#D4AF6A', fontStyle: 'italic' }}>de bonnes mains</em>
+          Vos cérémonies
+          <br />
+          entre{' '}
+          <em style={{ color: '#D4AF6A' }}>de bonnes mains</em>
         </h1>
 
-        {/* Sous-titre */}
+        {/* Sous-titre minimal */}
         <p
-          className="mb-10 text-base sm:text-lg leading-relaxed"
-          style={{ color: 'rgba(245,239,230,0.70)' }}
+          className="mb-10 max-w-lg text-base sm:text-lg leading-relaxed"
+          style={{ color: 'rgba(245,239,230,0.60)', fontFamily: 'Hanken Grotesk, sans-serif' }}
         >
-          Traiteurs, photographes, décorateurs et maquilleuses sélectionnés et vérifiés.
-          Vous célébrez, on s'occupe du reste.
+          Prestataires vérifiés. Mis en relation à la main.
+          Aucune mauvaise surprise le jour J.
         </p>
 
-        {/* CTA */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <a
-            href={whatsAppClient()}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block px-7 py-3.5 rounded text-sm font-semibold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-gold"
-            style={{
-              background: '#D4AF6A',
-              color: '#1E1230',
-              fontFamily: 'Hanken Grotesk, sans-serif',
-            }}
+        {/* Un seul CTA */}
+        <a
+          href={whatsAppClient()}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-3 group"
+          style={{ fontFamily: 'Hanken Grotesk, sans-serif' }}
+        >
+          <span
+            className="px-7 py-3.5 rounded-sm text-sm font-semibold transition-colors"
+            style={{ background: '#D4AF6A', color: '#1E1230' }}
             onMouseEnter={e => (e.currentTarget.style.background = '#EBCE87')}
             onMouseLeave={e => (e.currentTarget.style.background = '#D4AF6A')}
           >
             Je prépare une cérémonie
-          </a>
-          <a
-            href={whatsAppPrestataire()}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block px-7 py-3.5 rounded text-sm font-semibold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-gold"
-            style={{
-              border: '1px solid rgba(212,175,106,0.6)',
-              color: '#D4AF6A',
-              background: 'transparent',
-              fontFamily: 'Hanken Grotesk, sans-serif',
-            }}
-            onMouseEnter={e => {
-              e.currentTarget.style.background = 'rgba(212,175,106,0.08)'
-              e.currentTarget.style.borderColor = '#D4AF6A'
-            }}
-            onMouseLeave={e => {
-              e.currentTarget.style.background = 'transparent'
-              e.currentTarget.style.borderColor = 'rgba(212,175,106,0.6)'
-            }}
+          </span>
+          <span
+            className="text-sm transition-colors"
+            style={{ color: 'rgba(245,239,230,0.40)' }}
           >
-            Je suis prestataire
-          </a>
-        </div>
+            via WhatsApp
+          </span>
+        </a>
       </div>
+
+      {/* Ligne de bas de page */}
+      <div
+        className="absolute bottom-0 left-0 right-0 h-px"
+        style={{ background: 'linear-gradient(90deg, transparent, rgba(212,175,106,0.2), transparent)' }}
+      />
     </section>
-  )
-}
-
-// Ornement de coin SVG
-function Corner({ pos }: { pos: 'tl' | 'tr' | 'bl' | 'br' }) {
-  const style: React.CSSProperties = {
-    position: 'absolute',
-    width: 28,
-    height: 28,
-  }
-  if (pos === 'tl') { style.top = 10; style.left = 10 }
-  if (pos === 'tr') { style.top = 10; style.right = 10; style.transform = 'scaleX(-1)' }
-  if (pos === 'bl') { style.bottom = 10; style.left = 10; style.transform = 'scaleY(-1)' }
-  if (pos === 'br') { style.bottom = 10; style.right = 10; style.transform = 'scale(-1)' }
-
-  return (
-    <svg style={style} viewBox="0 0 28 28" fill="none" aria-hidden="true">
-      <path d="M2 26 L2 2 L26 2" stroke="#D4AF6A" strokeWidth="1" strokeOpacity="0.6" fill="none" />
-      <circle cx="2" cy="2" r="1.5" fill="#D4AF6A" fillOpacity="0.7" />
-    </svg>
   )
 }

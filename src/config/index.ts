@@ -1,4 +1,4 @@
-// Configuration centrale — modifier ici, jamais dans les composants
+// Configuration centrale — tout modifier ici, jamais dans les composants
 export const config = {
   whatsapp: {
     numero: import.meta.env.VITE_WHATSAPP_NUMERO ?? '33600000000',
@@ -6,12 +6,14 @@ export const config = {
     messagePrestataire: 'Bonjour Sandaga Events, je suis prestataire et je souhaite rejoindre votre sélection.',
   },
   instagram: import.meta.env.VITE_INSTAGRAM ?? 'sandaga.events',
+  linkedin: import.meta.env.VITE_LINKEDIN ?? 'sandaga-events',
+  tiktok: import.meta.env.VITE_TIKTOK ?? 'sandaga.events',
+  siteUrl: import.meta.env.VITE_SITE_URL ?? 'https://sandaga-events.vercel.app',
   objectifMensuelDefaut: 500,
 }
 
 export function lienWhatsApp(message: string): string {
-  const numero = config.whatsapp.numero
-  return `https://wa.me/${numero}?text=${encodeURIComponent(message)}`
+  return `https://wa.me/${config.whatsapp.numero}?text=${encodeURIComponent(message)}`
 }
 
 export const whatsAppClient = () => lienWhatsApp(config.whatsapp.messageClient)

@@ -1,49 +1,27 @@
-import { config, whatsAppClient } from '../../config'
-
+// Footer minimaliste
 export default function Footer() {
+  const annee = new Date().getFullYear()
+
   return (
     <footer
-      className="px-4 py-12 text-center"
-      style={{ background: '#291A3D', borderTop: '1px solid rgba(212,175,106,0.12)' }}
+      className="px-6 sm:px-14 py-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3"
+      style={{
+        background: '#150C26',
+        borderTop: '1px solid rgba(245,239,230,0.06)',
+      }}
     >
-      <div className="max-w-xl mx-auto">
-        <p
-          className="text-xl font-medium mb-1"
-          style={{ fontFamily: 'Fraunces, serif', color: '#D4AF6A' }}
-        >
-          Sandaga Events
-        </p>
-
-        <p className="text-xs mb-6" style={{ color: 'rgba(245,239,230,0.50)' }}>
-          Sandaga, la plateforme de la diaspora. Events est notre premier service,
-          lancé entre la France et le Sénégal.
-        </p>
-
-        <div className="flex justify-center gap-6 text-sm">
-          <a
-            href={whatsAppClient()}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="transition-colors"
-            style={{ color: 'rgba(245,239,230,0.60)' }}
-            onMouseEnter={e => (e.currentTarget.style.color = '#D4AF6A')}
-            onMouseLeave={e => (e.currentTarget.style.color = 'rgba(245,239,230,0.60)')}
-          >
-            WhatsApp
-          </a>
-          <a
-            href={`https://instagram.com/${config.instagram}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="transition-colors"
-            style={{ color: 'rgba(245,239,230,0.60)' }}
-            onMouseEnter={e => (e.currentTarget.style.color = '#D4AF6A')}
-            onMouseLeave={e => (e.currentTarget.style.color = 'rgba(245,239,230,0.60)')}
-          >
-            @{config.instagram}
-          </a>
-        </div>
-      </div>
+      <p
+        className="text-xs"
+        style={{ color: 'rgba(245,239,230,0.25)', fontFamily: 'Hanken Grotesk, sans-serif' }}
+      >
+        © {annee} Sandaga Events
+      </p>
+      <p
+        className="text-xs"
+        style={{ color: 'rgba(245,239,230,0.20)', fontFamily: 'Hanken Grotesk, sans-serif' }}
+      >
+        La plateforme de la diaspora — Events est notre premier service
+      </p>
     </footer>
   )
 }

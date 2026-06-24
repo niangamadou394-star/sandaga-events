@@ -1,76 +1,79 @@
-import { UtensilsCrossed, Camera, Sparkles, Wand2 } from 'lucide-react'
-
+// Services : liste éditoriale pleine largeur, pas de grille de cartes
 const services = [
   {
-    Icon: UtensilsCrossed,
-    titre: 'Traiteur',
-    texte: 'Cuisine authentique et généreuse, du thiébou dieune au buffet fusion.',
+    categorie: 'Traiteur',
+    detail: 'Du thiébou dieune au buffet fusion. Une cuisine qui nourrit autant les corps que les esprits.',
   },
   {
-    Icon: Camera,
-    titre: 'Photo et Vidéo',
-    texte: 'Des souvenirs impeccables pour revivre chaque moment de la cérémonie.',
+    categorie: 'Photo & Vidéo',
+    detail: 'Des images qui restent. Pas des clichés de prestation — des souvenirs de famille.',
   },
   {
-    Icon: Sparkles,
-    titre: 'Décoration',
-    texte: 'Mise en scène et décors qui reflètent la beauté et la culture de votre famille.',
+    categorie: 'Décoration',
+    detail: 'Des décors qui racontent quelque chose. Votre culture, votre goût, votre moment.',
   },
   {
-    Icon: Wand2,
-    titre: 'Maquillage et Coiffure',
-    texte: 'Les plus belles tenues méritent le plus beau regard.',
+    categorie: 'Maquillage & Coiffure',
+    detail: 'Parce que le plus beau jour mérite le plus beau regard sur soi.',
   },
 ]
 
 export default function Services() {
   return (
-    <section className="px-4 py-20" style={{ background: '#1E1230' }}>
-      <div className="max-w-4xl mx-auto">
-        {/* Eyebrow */}
-        <p
-          className="text-center text-xs tracking-[.28em] uppercase mb-3"
-          style={{ color: '#D4AF6A', fontFamily: 'Hanken Grotesk, sans-serif' }}
-        >
-          Nos services
-        </p>
+    <section
+      className="px-6 sm:px-14 py-20 sm:py-28"
+      style={{ background: '#291A3D' }}
+    >
+      {/* En-tête de section */}
+      <p
+        className="mb-16 text-xs tracking-[.22em] uppercase"
+        style={{ color: 'rgba(212,175,106,0.55)', fontFamily: 'Hanken Grotesk, sans-serif' }}
+      >
+        Ce qu'on couvre
+      </p>
 
-        <h2
-          className="text-center text-2xl sm:text-3xl font-medium mb-12"
-          style={{ fontFamily: 'Fraunces, serif', color: '#F5EFE6' }}
-        >
-          Tout ce qu'une grande cérémonie demande
-        </h2>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-          {services.map(({ Icon, titre, texte }) => (
-            <div
-              key={titre}
-              className="rounded-lg p-7 transition-transform hover:-translate-y-0.5"
-              style={{
-                background: '#291A3D',
-                border: '1px solid rgba(212,175,106,0.15)',
-              }}
-              onMouseEnter={e =>
-                (e.currentTarget.style.borderColor = 'rgba(212,175,106,0.35)')
-              }
-              onMouseLeave={e =>
-                (e.currentTarget.style.borderColor = 'rgba(212,175,106,0.15)')
-              }
+      {/* Liste éditoriale */}
+      <div>
+        {services.map((s, i) => (
+          <div
+            key={s.categorie}
+            className="flex flex-col sm:flex-row sm:items-baseline gap-4 sm:gap-12 py-8"
+            style={{
+              borderTop: i === 0 ? '1px solid rgba(212,175,106,0.15)' : '1px solid rgba(212,175,106,0.10)',
+            }}
+          >
+            {/* Numéro */}
+            <span
+              className="text-xs shrink-0 sm:w-8 tabular-nums"
+              style={{ color: 'rgba(212,175,106,0.35)', fontFamily: 'Hanken Grotesk, sans-serif' }}
             >
-              <Icon size={28} style={{ color: '#D4AF6A' }} strokeWidth={1.5} className="mb-4" />
-              <h3
-                className="text-lg font-medium mb-2"
-                style={{ fontFamily: 'Fraunces, serif', color: '#F5EFE6' }}
-              >
-                {titre}
-              </h3>
-              <p className="text-sm leading-relaxed" style={{ color: 'rgba(245,239,230,0.70)' }}>
-                {texte}
-              </p>
-            </div>
-          ))}
-        </div>
+              0{i + 1}
+            </span>
+
+            {/* Catégorie */}
+            <h3
+              className="shrink-0 sm:w-52 font-medium"
+              style={{
+                fontFamily: 'Fraunces, serif',
+                color: '#F5EFE6',
+                fontSize: 'clamp(1.15rem, 2.5vw, 1.4rem)',
+              }}
+            >
+              {s.categorie}
+            </h3>
+
+            {/* Détail */}
+            <p
+              className="flex-1 text-sm sm:text-base leading-relaxed"
+              style={{ color: 'rgba(245,239,230,0.55)', fontFamily: 'Hanken Grotesk, sans-serif' }}
+            >
+              {s.detail}
+            </p>
+          </div>
+        ))}
+
+        {/* Ligne de fermeture */}
+        <div style={{ borderTop: '1px solid rgba(212,175,106,0.10)' }} />
       </div>
     </section>
   )
