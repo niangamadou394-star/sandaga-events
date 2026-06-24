@@ -1,4 +1,3 @@
-import QRCode from 'react-qr-code'
 import { config, whatsAppClient } from '../../config'
 
 const CONTACT_IMG =
@@ -95,32 +94,6 @@ export default function Contact() {
           <div style={{ borderTop: '1px solid rgba(244,237,228,0.08)' }} />
         </div>
 
-        {/* QR code — petit, en bas, inline avec label */}
-        <div className="flex items-center gap-5 mt-14">
-          <div className="p-3" style={{ background: '#F4EDE4', borderRadius: 2 }}>
-            <QRCode
-              value={config.siteUrl}
-              size={72}
-              bgColor="#F4EDE4"
-              fgColor="#09080F"
-              level="M"
-            />
-          </div>
-          <div>
-            <p
-              className="text-xs mb-1"
-              style={{ color: 'rgba(244,237,228,0.45)', fontFamily: 'Hanken Grotesk, sans-serif' }}
-            >
-              Scanner pour partager
-            </p>
-            <p
-              className="text-xs"
-              style={{ color: 'rgba(244,237,228,0.22)', fontFamily: 'Hanken Grotesk, sans-serif' }}
-            >
-              sandaga-events.vercel.app
-            </p>
-          </div>
-        </div>
       </div>
     </section>
   )
