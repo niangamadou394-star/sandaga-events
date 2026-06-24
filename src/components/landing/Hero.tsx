@@ -26,13 +26,15 @@ export default function Hero() {
       />
 
       {/* Marque */}
-      <div className="absolute top-7 left-6 sm:left-14 z-10">
+      <div className="absolute top-6 left-6 sm:left-14 z-10">
         <p
           style={{
             fontFamily: 'Fraunces, serif',
             color: '#C8A96E',
-            fontSize: 15,
-            letterSpacing: '0.04em',
+            fontSize: 22,
+            letterSpacing: '0.06em',
+            fontWeight: 500,
+            textShadow: '0 1px 12px rgba(9,8,15,0.55)',
           }}
         >
           Sandaga Events

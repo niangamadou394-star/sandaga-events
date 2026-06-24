@@ -1,5 +1,5 @@
 const MANTRA_IMG =
-  'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=2400&q=80'
+  'https://images.unsplash.com/photo-1624228652954-9e3725a2a4f8?auto=format&fit=crop&w=2400&q=80'
 
 export default function Mantra() {
   return (
@@ -17,7 +17,7 @@ export default function Mantra() {
         className="absolute inset-0"
         style={{
           background:
-            'linear-gradient(125deg, rgba(9,8,15,0.92) 0%, rgba(9,8,15,0.65) 55%, rgba(9,8,15,0.25) 100%)',
+            'linear-gradient(to top, rgba(9,8,15,0.96) 0%, rgba(9,8,15,0.75) 45%, rgba(9,8,15,0.40) 100%)',
         }}
       />
 
