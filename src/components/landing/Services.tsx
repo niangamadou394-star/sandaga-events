@@ -1,80 +1,95 @@
-// Services : liste éditoriale pleine largeur, pas de grille de cartes
+// Photos Unsplash pour chaque service
 const services = [
   {
+    num: '01',
     categorie: 'Traiteur',
-    detail: 'Du thiébou dieune au buffet fusion. Une cuisine qui nourrit autant les corps que les esprits.',
+    detail: 'Du buffet généreux à la table gastronomique. Une cuisine qui nourrit autant les corps que les esprits.',
+    img: 'https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=1200&q=80',
+    // Table élégante dressée, lumières chaudes
   },
   {
+    num: '02',
     categorie: 'Photo & Vidéo',
-    detail: 'Des images qui restent. Pas des clichés de prestation — des souvenirs de famille.',
+    detail: 'Des images qui restent. Pas des clichés de prestation — des souvenirs qui racontent votre histoire.',
+    img: 'https://images.unsplash.com/photo-1606216794079-73a8c72c8f7e?auto=format&fit=crop&w=1200&q=80',
+    // Photographe de mariage, lumière dorée
   },
   {
+    num: '03',
     categorie: 'Décoration',
-    detail: 'Des décors qui racontent quelque chose. Votre culture, votre goût, votre moment.',
+    detail: 'Des décors qui racontent quelque chose. Votre goût, votre univers, votre moment.',
+    img: 'https://images.unsplash.com/photo-1478146059778-26028b07395a?auto=format&fit=crop&w=1200&q=80',
+    // Décoration florale élégante
   },
   {
+    num: '04',
     categorie: 'Maquillage & Coiffure',
     detail: 'Parce que le plus beau jour mérite le plus beau regard sur soi.',
+    img: 'https://images.unsplash.com/photo-1487412912498-0447578fcca8?auto=format&fit=crop&w=1200&q=80',
+    // Séance maquillage
   },
 ]
 
 export default function Services() {
   return (
-    <section
-      className="px-6 sm:px-14 py-20 sm:py-28"
-      style={{ background: '#291A3D' }}
-    >
-      {/* En-tête de section */}
-      <p
-        className="mb-16 text-xs tracking-[.22em] uppercase"
-        style={{ color: 'rgba(212,175,106,0.55)', fontFamily: 'Hanken Grotesk, sans-serif' }}
-      >
-        Ce qu'on couvre
-      </p>
+    <section style={{ background: '#291A3D' }}>
+      {/* En-tête */}
+      <div className="px-6 sm:px-14 pt-20 pb-12">
+        <p
+          className="text-xs tracking-[.22em] uppercase"
+          style={{ color: 'rgba(212,175,106,0.55)', fontFamily: 'Hanken Grotesk, sans-serif' }}
+        >
+          Ce qu'on couvre
+        </p>
+      </div>
 
-      {/* Liste éditoriale */}
-      <div>
-        {services.map((s, i) => (
+      {/* Services en alternance image / texte */}
+      {services.map((s, i) => (
+        <div
+          key={s.categorie}
+          className={`flex flex-col ${i % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'}`}
+          style={{ borderTop: '1px solid rgba(212,175,106,0.08)' }}
+        >
+          {/* Photo */}
           <div
-            key={s.categorie}
-            className="flex flex-col sm:flex-row sm:items-baseline gap-4 sm:gap-12 py-8"
+            className="w-full lg:w-1/2 min-h-[260px] sm:min-h-[320px] lg:min-h-[380px]"
             style={{
-              borderTop: i === 0 ? '1px solid rgba(212,175,106,0.15)' : '1px solid rgba(212,175,106,0.10)',
+              backgroundImage: `url('${s.img}')`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
             }}
+          />
+
+          {/* Texte */}
+          <div
+            className="w-full lg:w-1/2 flex flex-col justify-center px-8 py-12 sm:px-14"
+            style={{ background: i % 2 === 0 ? '#291A3D' : '#34234B' }}
           >
-            {/* Numéro */}
             <span
-              className="text-xs shrink-0 sm:w-8 tabular-nums"
+              className="text-xs mb-4 tabular-nums"
               style={{ color: 'rgba(212,175,106,0.35)', fontFamily: 'Hanken Grotesk, sans-serif' }}
             >
-              0{i + 1}
+              {s.num}
             </span>
-
-            {/* Catégorie */}
             <h3
-              className="shrink-0 sm:w-52 font-medium"
+              className="font-medium mb-4 leading-tight"
               style={{
                 fontFamily: 'Fraunces, serif',
                 color: '#F5EFE6',
-                fontSize: 'clamp(1.15rem, 2.5vw, 1.4rem)',
+                fontSize: 'clamp(1.4rem, 3vw, 2rem)',
               }}
             >
               {s.categorie}
             </h3>
-
-            {/* Détail */}
             <p
-              className="flex-1 text-sm sm:text-base leading-relaxed"
-              style={{ color: 'rgba(245,239,230,0.55)', fontFamily: 'Hanken Grotesk, sans-serif' }}
+              className="text-sm sm:text-base leading-relaxed"
+              style={{ color: 'rgba(245,239,230,0.55)', fontFamily: 'Hanken Grotesk, sans-serif', maxWidth: '32em' }}
             >
               {s.detail}
             </p>
           </div>
-        ))}
-
-        {/* Ligne de fermeture */}
-        <div style={{ borderTop: '1px solid rgba(212,175,106,0.10)' }} />
-      </div>
+        </div>
+      ))}
     </section>
   )
 }

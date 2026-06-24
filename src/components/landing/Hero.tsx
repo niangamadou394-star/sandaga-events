@@ -1,21 +1,29 @@
 import { whatsAppClient } from '../../config'
 
+// Photo : réception élégante avec lumières chaudes (Unsplash)
+const HERO_IMG = 'https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=2400&q=80'
+
 export default function Hero() {
   return (
     <section
       className="relative min-h-screen flex flex-col justify-end px-6 pb-16 sm:px-14 sm:pb-20"
       style={{
-        background: 'linear-gradient(160deg, #291A3D 0%, #1E1230 55%, #150C26 100%)',
+        backgroundImage: `
+          linear-gradient(to top, #1E1230 0%, rgba(30,18,48,0.82) 40%, rgba(30,18,48,0.35) 100%),
+          url('${HERO_IMG}')
+        `,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center 60%',
       }}
     >
-      {/* Marque en haut à gauche */}
+      {/* Marque */}
       <div className="absolute top-7 left-6 sm:left-14">
         <p style={{ fontFamily: 'Fraunces, serif', color: '#D4AF6A', fontSize: 15, letterSpacing: '0.04em' }}>
           Sandaga Events
         </p>
       </div>
 
-      {/* Lien admin discret en haut à droite */}
+      {/* Lien fondateur discret */}
       <a
         href="/admin"
         className="absolute top-7 right-6 sm:right-14 text-xs transition-colors"
@@ -26,17 +34,7 @@ export default function Hero() {
         Accès fondateur
       </a>
 
-      {/* Contenu principal — aligné en bas à gauche */}
       <div className="max-w-3xl">
-        {/* Petite accroche */}
-        <p
-          className="mb-5 text-xs tracking-[.22em] uppercase"
-          style={{ color: '#D4AF6A', fontFamily: 'Hanken Grotesk, sans-serif' }}
-        >
-          Diaspora France &amp; Sénégal
-        </p>
-
-        {/* Titre massif */}
         <h1
           className="mb-8 font-medium leading-[1.05]"
           style={{
@@ -51,22 +49,20 @@ export default function Hero() {
           <em style={{ color: '#D4AF6A' }}>de bonnes mains</em>
         </h1>
 
-        {/* Sous-titre minimal */}
         <p
           className="mb-10 max-w-lg text-base sm:text-lg leading-relaxed"
-          style={{ color: 'rgba(245,239,230,0.60)', fontFamily: 'Hanken Grotesk, sans-serif' }}
+          style={{ color: 'rgba(245,239,230,0.65)', fontFamily: 'Hanken Grotesk, sans-serif' }}
         >
           Prestataires vérifiés. Mis en relation à la main.
           Aucune mauvaise surprise le jour J.
         </p>
 
-        {/* Un seul CTA */}
         <a
           href={whatsAppClient()}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-3 group"
-          style={{ fontFamily: 'Hanken Grotesk, sans-serif' }}
+          className="inline-flex items-center gap-3"
+          style={{ fontFamily: 'Hanken Grotesk, sans-serif', textDecoration: 'none' }}
         >
           <span
             className="px-7 py-3.5 rounded-sm text-sm font-semibold transition-colors"
@@ -76,20 +72,11 @@ export default function Hero() {
           >
             Je prépare une cérémonie
           </span>
-          <span
-            className="text-sm transition-colors"
-            style={{ color: 'rgba(245,239,230,0.40)' }}
-          >
+          <span className="text-sm" style={{ color: 'rgba(245,239,230,0.40)' }}>
             via WhatsApp
           </span>
         </a>
       </div>
-
-      {/* Ligne de bas de page */}
-      <div
-        className="absolute bottom-0 left-0 right-0 h-px"
-        style={{ background: 'linear-gradient(90deg, transparent, rgba(212,175,106,0.2), transparent)' }}
-      />
     </section>
   )
 }
