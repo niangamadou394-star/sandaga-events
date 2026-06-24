@@ -4,20 +4,20 @@ const TEMO_IMG =
 const temoignages = [
   {
     texte:
-      "En deux messages WhatsApp, Sandaga Events nous avait trouvé un traiteur exceptionnel. Le jour J, tout était parfait.",
-    auteur: "Fatou & Mamadou",
-    evenement: "Mariage · Paris",
+      "franchement je savais pas trop a quoi m'attendre... mais le traiteur qu'ils ont trouvé pour le mariage etait incroyable. toute la famille en parle encore 😅",
+    auteur: "Sophie L.",
+    evenement: "Mariage · Nantes",
   },
   {
     texte:
-      "Je cherchais un photographe pour le baptême de ma fille. Trois jours plus tard, j'avais rencontré le bon. Aucune mauvaise surprise.",
-    auteur: "Aïssatou K.",
-    evenement: "Baptême · Lyon",
+      "Super réactivité sur WhatsApp, réponse en moins d'une heure. Le photographe etait exactement ce qu'on cherchait pour l'anniv de mes parents. Je recommande vraiment !",
+    auteur: "Karim B.",
+    evenement: "Fête de famille · Paris",
   },
   {
     texte:
-      "Une décoratrice qui a su exactement ce qu'on voulait. Sans Sandaga, on n'aurait jamais trouvé ça seuls.",
-    auteur: "Ibrahim & Mariama",
+      "Honnêtement j'avais des doutes au départ mais la déco etait exactement ce qu'on avait demandé, dans les temps et sans stress. Pas une seule galère le jour J.",
+    auteur: "Marie & Thomas",
     evenement: "Mariage · Bordeaux",
   },
 ]
@@ -32,13 +32,11 @@ export default function Temoignages() {
         className="absolute inset-0 w-full h-full"
         style={{ objectFit: 'cover', objectPosition: 'center' }}
       />
-      {/* Overlay sombre */}
       <div
         className="absolute inset-0"
-        style={{ background: 'rgba(9,8,15,0.88)' }}
+        style={{ background: 'rgba(9,8,15,0.87)' }}
       />
 
-      {/* Contenu */}
       <div className="relative z-10 px-6 sm:px-14 py-20 sm:py-28">
         <p
           className="text-xs tracking-[.22em] uppercase mb-14"
@@ -54,34 +52,30 @@ export default function Temoignages() {
               className="flex flex-col justify-between p-8 sm:p-10"
               style={{ background: '#09080F' }}
             >
-              {/* Guillemet */}
               <span
-                className="block mb-6 leading-none select-none"
+                className="block mb-5 select-none"
                 style={{
                   fontFamily: 'Fraunces, serif',
                   color: '#C8A96E',
-                  fontSize: '3.5rem',
+                  fontSize: '3rem',
                   lineHeight: 0.8,
-                  opacity: 0.55,
+                  opacity: 0.50,
                 }}
               >
                 "
               </span>
 
-              {/* Texte */}
               <p
                 className="flex-1 mb-8 leading-relaxed"
                 style={{
-                  fontFamily: 'Fraunces, serif',
-                  color: '#F4EDE4',
-                  fontSize: 'clamp(1rem, 1.8vw, 1.15rem)',
-                  fontStyle: 'italic',
+                  fontFamily: 'Hanken Grotesk, sans-serif',
+                  color: 'rgba(244,237,228,0.80)',
+                  fontSize: 'clamp(0.9rem, 1.6vw, 1.05rem)',
                 }}
               >
                 {t.texte}
               </p>
 
-              {/* Attribution */}
               <div style={{ borderTop: '1px solid rgba(244,237,228,0.08)', paddingTop: '1.25rem' }}>
                 <p
                   className="text-sm font-medium"
