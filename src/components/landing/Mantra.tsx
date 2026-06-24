@@ -1,38 +1,52 @@
-// Photo : couple souriant lors d'une cérémonie (Unsplash)
-const MANTRA_IMG = 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=2400&q=80'
+const MANTRA_IMG =
+  'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=2400&q=80'
 
 export default function Mantra() {
   return (
-    <section className="flex flex-col lg:flex-row min-h-[480px]" style={{ background: '#1E1230' }}>
-      {/* Image — prend toute la moitié gauche */}
+    <section className="relative overflow-hidden" style={{ minHeight: '60vh' }}>
+      {/* Image plein fond */}
+      <img
+        src={MANTRA_IMG}
+        alt=""
+        className="absolute inset-0 w-full h-full"
+        style={{ objectFit: 'cover', objectPosition: 'center 30%' }}
+      />
+
+      {/* Overlay directionnel */}
       <div
-        className="w-full lg:w-1/2 min-h-[280px] lg:min-h-0"
+        className="absolute inset-0"
         style={{
-          backgroundImage: `url('${MANTRA_IMG}')`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center 30%',
+          background:
+            'linear-gradient(125deg, rgba(9,8,15,0.92) 0%, rgba(9,8,15,0.65) 55%, rgba(9,8,15,0.25) 100%)',
         }}
       />
 
-      {/* Texte — moitié droite */}
-      <div className="w-full lg:w-1/2 flex flex-col justify-center px-8 py-16 sm:px-14">
+      {/* Contenu */}
+      <div
+        className="relative z-10 flex flex-col justify-end px-8 py-16 sm:px-14 sm:py-24"
+        style={{ minHeight: '60vh' }}
+      >
         <p
-          className="font-medium leading-snug mb-6"
+          className="font-medium leading-snug mb-5"
           style={{
             fontFamily: 'Fraunces, serif',
-            color: '#F5EFE6',
-            fontSize: 'clamp(1.5rem, 3.5vw, 2.4rem)',
-            maxWidth: '16em',
+            color: '#F4EDE4',
+            fontSize: 'clamp(1.55rem, 3.8vw, 2.8rem)',
+            maxWidth: '17em',
           }}
         >
           On ne joue pas à la roulette pour{' '}
-          <em style={{ color: '#D4AF6A' }}>le plus beau jour</em>{' '}
+          <em style={{ color: '#C8A96E' }}>le plus beau jour</em>{' '}
           de sa famille.
         </p>
 
         <p
           className="text-sm sm:text-base leading-relaxed"
-          style={{ color: 'rgba(245,239,230,0.50)', fontFamily: 'Hanken Grotesk, sans-serif', maxWidth: '34em' }}
+          style={{
+            color: 'rgba(244,237,228,0.50)',
+            fontFamily: 'Hanken Grotesk, sans-serif',
+            maxWidth: '36em',
+          }}
         >
           Chaque prestataire est rencontré, évalué, puis choisi.
           Pas de profils sans fond. Une sélection restreinte, faite à la main.

@@ -1,95 +1,96 @@
-// Photos Unsplash pour chaque service
 const services = [
   {
     num: '01',
     categorie: 'Traiteur',
     detail: 'Du buffet généreux à la table gastronomique. Une cuisine qui nourrit autant les corps que les esprits.',
-    img: 'https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=1200&q=80',
-    // Table élégante dressée, lumières chaudes
+    img: 'https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=900&q=80',
   },
   {
     num: '02',
     categorie: 'Photo & Vidéo',
     detail: 'Des images qui restent. Pas des clichés de prestation — des souvenirs qui racontent votre histoire.',
-    img: 'https://images.unsplash.com/photo-1606216794079-73a8c72c8f7e?auto=format&fit=crop&w=1200&q=80',
-    // Photographe de mariage, lumière dorée
+    img: 'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=80',
   },
   {
     num: '03',
     categorie: 'Décoration',
     detail: 'Des décors qui racontent quelque chose. Votre goût, votre univers, votre moment.',
-    img: 'https://images.unsplash.com/photo-1478146059778-26028b07395a?auto=format&fit=crop&w=1200&q=80',
-    // Décoration florale élégante
+    img: 'https://images.unsplash.com/photo-1478146059778-26028b07395a?auto=format&fit=crop&w=900&q=80',
   },
   {
     num: '04',
     categorie: 'Maquillage & Coiffure',
     detail: 'Parce que le plus beau jour mérite le plus beau regard sur soi.',
-    img: 'https://images.unsplash.com/photo-1487412912498-0447578fcca8?auto=format&fit=crop&w=1200&q=80',
-    // Séance maquillage
+    img: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=900&q=80',
   },
 ]
 
 export default function Services() {
   return (
-    <section style={{ background: '#291A3D' }}>
-      {/* En-tête */}
-      <div className="px-6 sm:px-14 pt-20 pb-12">
+    <section style={{ background: '#09080F' }}>
+      {/* Label */}
+      <div className="px-6 sm:px-14 pt-20 pb-6">
         <p
           className="text-xs tracking-[.22em] uppercase"
-          style={{ color: 'rgba(212,175,106,0.55)', fontFamily: 'Hanken Grotesk, sans-serif' }}
+          style={{ color: 'rgba(200,169,110,0.45)', fontFamily: 'Hanken Grotesk, sans-serif' }}
         >
           Ce qu'on couvre
         </p>
       </div>
 
-      {/* Services en alternance image / texte */}
-      {services.map((s, i) => (
-        <div
-          key={s.categorie}
-          className={`flex flex-col ${i % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'}`}
-          style={{ borderTop: '1px solid rgba(212,175,106,0.08)' }}
-        >
-          {/* Photo */}
+      {/* Grille 2×2 */}
+      <div className="grid grid-cols-1 sm:grid-cols-2">
+        {services.map((s) => (
           <div
-            className="w-full lg:w-1/2 min-h-[260px] sm:min-h-[320px] lg:min-h-[380px]"
-            style={{
-              backgroundImage: `url('${s.img}')`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-            }}
-          />
-
-          {/* Texte */}
-          <div
-            className="w-full lg:w-1/2 flex flex-col justify-center px-8 py-12 sm:px-14"
-            style={{ background: i % 2 === 0 ? '#291A3D' : '#34234B' }}
+            key={s.categorie}
+            className="relative overflow-hidden"
+            style={{ aspectRatio: '4 / 3' }}
           >
-            <span
-              className="text-xs mb-4 tabular-nums"
-              style={{ color: 'rgba(212,175,106,0.35)', fontFamily: 'Hanken Grotesk, sans-serif' }}
-            >
-              {s.num}
-            </span>
-            <h3
-              className="font-medium mb-4 leading-tight"
+            {/* Photo */}
+            <img
+              src={s.img}
+              alt={s.categorie}
+              className="absolute inset-0 w-full h-full"
+              style={{ objectFit: 'cover', objectPosition: 'center' }}
+            />
+
+            {/* Overlay gradient bas */}
+            <div
+              className="absolute inset-0"
               style={{
-                fontFamily: 'Fraunces, serif',
-                color: '#F5EFE6',
-                fontSize: 'clamp(1.4rem, 3vw, 2rem)',
+                background:
+                  'linear-gradient(to top, rgba(9,8,15,0.92) 0%, rgba(9,8,15,0.45) 50%, rgba(9,8,15,0.05) 100%)',
               }}
-            >
-              {s.categorie}
-            </h3>
-            <p
-              className="text-sm sm:text-base leading-relaxed"
-              style={{ color: 'rgba(245,239,230,0.55)', fontFamily: 'Hanken Grotesk, sans-serif', maxWidth: '32em' }}
-            >
-              {s.detail}
-            </p>
+            />
+
+            {/* Texte en bas */}
+            <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8">
+              <span
+                className="block text-xs mb-2 tabular-nums"
+                style={{ color: 'rgba(200,169,110,0.45)', fontFamily: 'Hanken Grotesk, sans-serif' }}
+              >
+                {s.num}
+              </span>
+              <h3
+                className="font-medium mb-2 leading-tight"
+                style={{
+                  fontFamily: 'Fraunces, serif',
+                  color: '#F4EDE4',
+                  fontSize: 'clamp(1.15rem, 2.2vw, 1.5rem)',
+                }}
+              >
+                {s.categorie}
+              </h3>
+              <p
+                className="text-sm leading-relaxed"
+                style={{ color: 'rgba(244,237,228,0.52)', fontFamily: 'Hanken Grotesk, sans-serif', maxWidth: '28em' }}
+              >
+                {s.detail}
+              </p>
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </section>
   )
 }
