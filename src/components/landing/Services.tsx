@@ -3,25 +3,25 @@ const services = [
     num: '01',
     categorie: 'Traiteur',
     detail: 'Du buffet généreux à la table gastronomique. Une cuisine qui nourrit autant les corps que les esprits.',
-    img: 'https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=900&q=80',
+    img: 'https://images.unsplash.com/photo-1776267890230-94f1926c30ef?auto=format&fit=crop&w=900&q=80',
   },
   {
     num: '02',
     categorie: 'Photo & Vidéo',
     detail: 'Des images qui restent. Des souvenirs qui racontent votre histoire.',
-    img: 'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=80',
+    img: 'https://images.unsplash.com/photo-1507915977619-6ccfe8003ae6?auto=format&fit=crop&w=900&q=80',
   },
   {
     num: '03',
     categorie: 'Décoration',
     detail: 'Des décors qui racontent quelque chose. Votre goût, votre univers, votre moment.',
-    img: 'https://images.unsplash.com/photo-1478146059778-26028b07395a?auto=format&fit=crop&w=900&q=80',
+    img: 'https://images.unsplash.com/photo-1780593194924-35f0343e738b?auto=format&fit=crop&w=900&q=80',
   },
   {
     num: '04',
     categorie: 'Maquillage & Coiffure',
     detail: 'Parce que le plus beau jour mérite le plus beau regard sur soi.',
-    img: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=900&q=80',
+    img: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=900&q=80',
   },
 ]
 
