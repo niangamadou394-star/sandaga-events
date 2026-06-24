@@ -2,6 +2,7 @@ import Hero from '../../components/landing/Hero'
 import Mantra from '../../components/landing/Mantra'
 import Services from '../../components/landing/Services'
 import CommentCaMarche from '../../components/landing/CommentCaMarche'
+import Temoignages from '../../components/landing/Temoignages'
 import DeuxPortes from '../../components/landing/DeuxPortes'
 import Contact from '../../components/landing/Contact'
 import Footer from '../../components/landing/Footer'
@@ -13,6 +14,7 @@ export default function LandingPage() {
       <Mantra />
       <Services />
       <CommentCaMarche />
+      <Temoignages />
       <DeuxPortes />
       <Contact />
       <Footer />
