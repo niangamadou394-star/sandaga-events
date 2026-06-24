@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Plus, MessageCircle, Pencil, Archive, CheckCircle, Clock } from 'lucide-react'
+import { Plus, MessageCircle, Pencil, Archive } from 'lucide-react'
 import { supabase, type Prestataire, type Categorie, type StatutPrestataire } from '../../lib/supabase'
 import { whatsAppContact } from '../../config'
 

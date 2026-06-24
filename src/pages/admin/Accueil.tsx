@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Users, ClipboardList, TrendingUp, Target } from 'lucide-react'
-import { supabase, type Prestataire, type Demande, type Prestation } from '../../lib/supabase'
+import { supabase, type Prestation } from '../../lib/supabase'
 import { config } from '../../config'
 
 export default function Accueil() {
