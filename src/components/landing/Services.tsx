@@ -8,7 +8,7 @@ const services = [
   {
     num: '02',
     categorie: 'Photo & Vidéo',
-    detail: 'Des images qui restent. Pas des clichés de prestation — des souvenirs qui racontent votre histoire.',
+    detail: 'Des images qui restent. Des souvenirs qui racontent votre histoire.',
     img: 'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=80',
   },
   {
